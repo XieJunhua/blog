@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - '10'
+before_install:
+  - export TZ='Asia/Shanghai'
+script:
+  - hexo generate 
+
+install:
+  - npm install  
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $TOKEN
+  local_dir: public
+  repo: https://github.com/XieJunhua/XieJunhua.github.io.git
+  target_branch: master
+  keep_history: true
+  on:
+    branch: master
